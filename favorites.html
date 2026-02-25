@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites – Book Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="bg-gray-900 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+    <a href="index.html" class="text-xl font-bold tracking-tight">📚 BookExplorer</a>
+    <div class="flex gap-4">
+      <a href="index.html" class="text-sm hover:text-yellow-400 transition"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="favorites.html" class="text-sm text-yellow-400 font-semibold"><i class="fa-solid fa-heart"></i> Favorites</a>
+      <a href="about.html" class="text-sm hover:text-yellow-400 transition"><i class="fa-solid fa-circle-info"></i> About</a>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN ===== -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-10">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold">My Favorites</h2>
+      <button
+        id="clearBtn"
+        class="hidden text-xs text-red-400 border border-red-300 px-3 py-1 rounded hover:bg-red-50 transition"
+      >
+        Clear All
+      </button>
+    </div>
+
+    <div id="favoritesGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div id="emptyMessage" class="col-span-full text-center py-20 text-gray-400">
+        <p class="text-5xl mb-4">📖</p>
+        <p class="text-xl font-semibold">No favorites yet</p>
+        <p class="text-sm mt-2">
+          Go to the <a href="index.html" class="text-yellow-500 underline">Home page</a> and click ♡ Save to add books here.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- About -->
+    <div>
+      <h3 class="text-white font-semibold mb-2">About</h3>
+      <p class="text-sm">A simple web app to explore books and manage favorites.</p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="text-white font-semibold mb-2">Quick Links</h3>
+      <ul class="space-y-1">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="favorites.html" class="hover:text-white">Favorites</a></li>
+        <li><a href="about.html" class="hover:text-white">About</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="text-white font-semibold mb-2">Contact</h3>
+      <p class="text-sm">Email: info@Bibliora.com</p>
+    </div>
+
+  </div>
+
+  <p class="text-center text-xs mt-6">© 2026 Book Explorer. All rights reserved.</p>
+</footer>
+
+  <!-- ===== FAVORITES SCRIPT ===== -->
+  <script type="module" src="favorites.js"></script>
+
+  <script type="module">
+    import { loadFavorites, removeFavorite } from "./favorites.js";
+
+    const grid        = document.getElementById("favoritesGrid");
+    const emptyMsg    = document.getElementById("emptyMessage");
+    const clearBtn    = document.getElementById("clearBtn");
+
+    // Create one card element for a favorite book
+    function createFavCard(book) {
+      const card = document.createElement("div");
+      card.className = "bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden";
+      card.dataset.bookId = book.id;
+
+      const cover = book.cover
+        ? `<img src="${book.cover}" alt="${book.title}" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/150'">`
+        : `<div class="bg-gray-200 h-48 flex items-center justify-center text-gray-400 text-4xl">📖</div>`;
+
+      card.innerHTML = `
+        <div class="relative h-48 overflow-hidden">${cover}</div>
+        <div class="p-3">
+          <h3 class="font-semibold text-sm leading-tight line-clamp-2">${book.title}</h3>
+          <p class="text-xs text-gray-500 mt-1 truncate">${book.author}</p>
+          <p class="text-xs text-yellow-500 mt-1">${book.year || ""}</p>
+          <button
+            class="remove-btn mt-3 w-full text-xs py-1 rounded border border-red-300 text-red-400 hover:bg-red-50 transition"
+            data-book-id="${book.id}"
+          >✕ Remove</button>
+        </div>
+      `;
+      return card;
+    }
+
+    // Render all favorites from localStorage
+    function renderFavorites() {
+      const favorites = loadFavorites();
+
+      // Clear old cards
+      grid.querySelectorAll("[data-book-id]").forEach((c) => c.remove());
+
+      if (favorites.length === 0) {
+        emptyMsg.classList.remove("hidden");
+        clearBtn.classList.add("hidden");
+        return;
+      }
+
+      emptyMsg.classList.add("hidden");
+      clearBtn.classList.remove("hidden");
+
+      favorites.forEach((book) => grid.appendChild(createFavCard(book)));
+
+      // Wire up remove buttons
+      grid.querySelectorAll(".remove-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          removeFavorite(e.target.dataset.bookId);
+          renderFavorites();
+        });
+      });
+    }
+
+    // Clear all button
+    clearBtn.addEventListener("click", () => {
+      if (confirm("Remove all favorites?")) {
+        localStorage.removeItem("bookExplorerFavorites");
+        renderFavorites();
+      }
+    });
+
+    renderFavorites();
+  </script>
+
+</body>
+</html>
