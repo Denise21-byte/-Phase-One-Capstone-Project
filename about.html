@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Book Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="bg-gray-900 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+    <a href="index.html" class="text-xl font-bold tracking-tight">📚 Bibliora</a>
+    <div class="flex gap-4">
+      <a href="index.html" class="text-sm hover:text-yellow-400 transition"><i class="fa-solid fa-house"></i>Home</a>
+      <a href="favorites.html" class="text-sm hover:text-yellow-400 transition"> <i class="fa-solid fa-heart"></i>Favorites</a>
+      <a href="about.html" class="text-sm text-yellow-400 font-semibold"> <i class="fa-solid fa-circle-info"></i>About</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="bg-gray-800 text-white py-14 px-6 text-center">
+    <p class="text-yellow-400 text-xs uppercase tracking-widest mb-3 font-medium">Frontend Phase 1 Capstone</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">About Book Explorer</h1>
+    <p class="text-gray-400 text-lg max-w-xl mx-auto">
+      A responsive, interactive, and API-powered book browsing app built from scratch.
+    </p>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="flex-1 max-w-3xl mx-auto w-full px-6 py-12 space-y-14">
+
+    <!-- 1. Meet the Developer -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">👋 Meet the Developer</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="flex items-center gap-5 bg-white rounded-lg shadow p-5">
+        <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-3xl flex-shrink-0">
+          🧑‍💻
+        </div>
+        <div>
+          <h3 class="font-bold text-lg">Dushime Aline Denise</h3>
+          <p class="text-gray-500 text-sm mt-1">
+            Frontend developer in training. Passionate about building things for the web
+            and creating experiences that are both useful and beautiful.
+            Currently completing the Frontend Phase 1 Capstone at
+            <span class="text-yellow-600 font-medium">SheCanCode</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Why I Built This -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">💡 Why I Built This</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="bg-white rounded-lg shadow p-6 text-gray-600 leading-relaxed space-y-3">
+        <p>
+          I built Book Explorer because I wanted to work on something that felt real —
+          not just another counter or todo list. Books are something people actually care about,
+          and connecting to a live API with millions of real titles made the project feel meaningful.
+        </p>
+        <p>
+          The goal was to challenge myself to go beyond static pages and build something
+          truly interactive — where users can search, save, and come back to their collection.
+          It pushed me to think like a real frontend developer, not just a student.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Features -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">✨ Features</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg shadow p-4 flex gap-3 items-start">
+          <span class="text-2xl">🔍</span>
+          <div>
+            <h4 class="font-semibold text-sm">Live Book Search</h4>
+            <p class="text-xs text-gray-500 mt-1">Search thousands of real books by title, author or subject using the Open Library API.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex gap-3 items-start">
+          <span class="text-2xl">♥</span>
+          <div>
+            <h4 class="font-semibold text-sm">Save Favorites</h4>
+            <p class="text-xs text-gray-500 mt-1">Save books to your personal favorites list that persists even after you close the browser.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex gap-3 items-start">
+          <span class="text-2xl">📱</span>
+          <div>
+            <h4 class="font-semibold text-sm">Fully Responsive</h4>
+            <p class="text-xs text-gray-500 mt-1">Works beautifully on mobile, tablet, and desktop with a mobile-first design approach.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex gap-3 items-start">
+          <span class="text-2xl">⚡</span>
+          <div>
+            <h4 class="font-semibold text-sm">Loading States</h4>
+            <p class="text-xs text-gray-500 mt-1">Skeleton cards and feedback messages keep the experience smooth while data loads.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Challenges I Faced -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">🧩 Challenges I Faced</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="bg-white rounded-lg shadow divide-y divide-gray-100">
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">01</span>
+          <div>
+            <h4 class="font-semibold text-sm">Understanding async/await</h4>
+            <p class="text-xs text-gray-500 mt-1">Wrapping my head around asynchronous code and why we need to wait for the API response before rendering took some time but it finally clicked.</p>
+          </div>
+        </div>
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">02</span>
+          <div>
+            <h4 class="font-semibold text-sm">Connecting JS modules together</h4>
+            <p class="text-xs text-gray-500 mt-1">Understanding how import and export works between fetchBooks.js, favorites.js and main.js was confusing at first but makes the code so much cleaner.</p>
+          </div>
+        </div>
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">03</span>
+          <div>
+            <h4 class="font-semibold text-sm">Missing cover images from the API</h4>
+            <p class="text-xs text-gray-500 mt-1">Not every book in the Open Library has a cover image, so I had to build a fallback placeholder that still looks good on the page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. What I Learned -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">🎓 What I Learned</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="bg-white rounded-lg shadow p-6 text-gray-600 leading-relaxed space-y-3">
+        <p>
+          This project taught me that building a real app is very different from doing exercises.
+          You have to think about what happens when things go wrong — what if the API is slow?
+          What if there are no results? What if the user has no favorites yet?
+        </p>
+        <p>
+          I also learned how powerful ES6 modules are for keeping code organised. Instead of
+          one giant file, splitting logic into <span class="font-mono text-sm bg-gray-100 px-1 rounded">fetchBooks.js</span>
+          and <span class="font-mono text-sm bg-gray-100 px-1 rounded">favorites.js</span> made everything
+          easier to read, debug and build on top of.
+        </p>
+        <p>
+          Most importantly I learned to not be afraid of the browser console. Every red error
+          message is just a clue pointing you to exactly what needs fixing.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Future Improvements -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">🚀 Future Improvements</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <ul class="space-y-3">
+        <li class="bg-white rounded-lg shadow px-5 py-3 flex items-center gap-3 text-sm text-gray-600">
+          <span class="text-lg">🌙</span> Dark mode toggle
+        </li>
+        <li class="bg-white rounded-lg shadow px-5 py-3 flex items-center gap-3 text-sm text-gray-600">
+          <span class="text-lg">⭐</span> Book ratings and personal reviews
+        </li>
+        <li class="bg-white rounded-lg shadow px-5 py-3 flex items-center gap-3 text-sm text-gray-600">
+          <span class="text-lg">👤</span> User login so favorites sync across devices
+        </li>
+        <li class="bg-white rounded-lg shadow px-5 py-3 flex items-center gap-3 text-sm text-gray-600">
+          <span class="text-lg">🤖</span> Book recommendations based on your favorites
+        </li>
+        <li class="bg-white rounded-lg shadow px-5 py-3 flex items-center gap-3 text-sm text-gray-600">
+          <span class="text-lg">📤</span> Share your reading list with friends
+        </li>
+      </ul>
+    </section>
+
+    <!-- 7. Tech Stack -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">🛠 Tech Stack</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">HTML5</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">CSS3</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">Tailwind CSS</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">JavaScript ES6+</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">Async / Await</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">Fetch API</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">ES6 Modules</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">Open Library API</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">localStorage</span>
+        <span class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-full">Git & GitHub</span>
+      </div>
+    </section>
+
+    <!-- 8. Contact -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">📬 Contact</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="bg-white rounded-lg shadow p-6 flex flex-col sm:flex-row gap-4">
+       <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+  class="flex-1 flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 hover:border-yellow-400 hover:text-yellow-600 transition text-sm font-medium">
+  <span class="text-xl">🐙</span> GitHub
+</a>
+
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+  class="flex-1 flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 hover:border-yellow-400 hover:text-yellow-600 transition text-sm font-medium">
+  <span class="text-xl">💼</span> LinkedIn
+</a>
+
+        <a href="mailto:you@email.com"
+          class="flex-1 flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 hover:border-yellow-400 hover:text-yellow-600 transition text-sm font-medium">
+          <span class="text-xl">✉️</span> Email Me
+        </a>
+      </div>
+    </section>
+
+    <!-- 9. Lab Breakdown -->
+    <section>
+      <h2 class="text-2xl font-bold mb-1">📋 Lab Breakdown</h2>
+      <div class="w-12 h-1 bg-yellow-400 mb-5 rounded"></div>
+      <div class="bg-white rounded-lg shadow divide-y divide-gray-100">
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">Lab 1</span>
+          <div>
+            <h4 class="font-semibold text-sm">Responsive Layouts</h4>
+            <p class="text-xs text-gray-500 mt-1">Homepage with navbar, hero section, responsive grid using Tailwind and mobile-first design.</p>
+          </div>
+        </div>
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">Lab 2</span>
+          <div>
+            <h4 class="font-semibold text-sm">DOM Interactivity</h4>
+            <p class="text-xs text-gray-500 mt-1">Favorites page with modular JS, DOM click events and localStorage persistence.</p>
+          </div>
+        </div>
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">Lab 3</span>
+          <div>
+            <h4 class="font-semibold text-sm">API Integration</h4>
+            <p class="text-xs text-gray-500 mt-1">fetchBooks.js module using fetch and async/await, live search, loading skeletons and empty states.</p>
+          </div>
+        </div>
+        <div class="p-4 flex gap-4">
+          <span class="text-yellow-500 font-bold text-sm min-w-fit">Lab 4</span>
+          <div>
+            <h4 class="font-semibold text-sm">GitHub Collaboration</h4>
+            <p class="text-xs text-gray-500 mt-1">Feature branches, pull requests, issues for bug tracking and GitHub Projects for task management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- About -->
+    <div>
+      <h3 class="text-white font-semibold mb-2">About</h3>
+      <p class="text-sm">A simple web app to explore books and manage favorites.</p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="text-white font-semibold mb-2">Quick Links</h3>
+      <ul class="space-y-1">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="favorites.html" class="hover:text-white">Favorites</a></li>
+        <li><a href="about.html" class="hover:text-white">About</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="text-white font-semibold mb-2">Contact</h3>
+      <p class="text-sm">Email: info@Bibliora.com</p>
+    </div>
+
+  </div>
+
+  <p class="text-center text-xs mt-6">© 2026 Book Explorer. All rights reserved.</p>
+</footer>
+</body>
+</html>
